@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration=production --base-href https://anatkig.github.io/note_service_front/ && ngh --dir=dist/note_service_front"
   },
   "private": true,
   "dependencies": {
