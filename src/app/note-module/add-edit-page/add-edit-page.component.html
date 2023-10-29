@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ isEditMode ? 'Edit Note' : 'Add Note' }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="note.title" name = "title">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="note.description" name = "description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Priority</mat-label>
+      <mat-select [(ngModel)]="note.priority">
+        <mat-option *ngFor="let priority of priorities" [value]="priority" name = "priority">{{ priority }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="note.status">
+        <mat-option *ngFor="let status of statuses" [value]="status" name = "status">{{ status }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="goBack()">Back</button>
+      <button mat-raised-button color="primary" (click)="onSave()">{{ isEditMode ? 'Update' : 'Add' }}</button>
+      <button mat-raised-button color="warn" *ngIf="isEditMode" (click)="onDelete()">Delete</button>
+    </mat-card-actions>
+</mat-card>
+

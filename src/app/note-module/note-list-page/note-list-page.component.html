@@ -1,1 +1,19 @@
-<p>note-list-page works!</p>
+<mat-toolbar color="primary">
+  <span>Note List</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="openAddNotePage()">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-grid-list cols="3" rowHeight="300px" gutterSize="16px">
+  <mat-grid-tile  *ngFor="let note of notes">
+      <app-note
+          [note]="note"
+          (info)="openNoteDetails(note.id)"
+          (edit)="openEditNoteModal(note.id)"
+          (delete)="deleteNote(note.id)"
+          (complete)="completeNote($event)">
+      </app-note>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,1 +1,18 @@
-<p>note works!</p>
+<div class="note-tile" [ngStyle]="{'background-color': getNoteColor(note.priority)}">
+  <h3>{{ note.title }}</h3>
+  <p>{{ note.description }}</p>
+  <div class="actions">
+    <button mat-icon-button (click)="onInfoClick()" matTooltip="Info">
+      <mat-icon>info</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onEditClick()" matTooltip="Edit">
+      <mat-icon>edit</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onDeleteClick()" matTooltip="Delete">
+      <mat-icon>delete</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onCompleteClick()" matTooltip="Complete">
+      <mat-icon>done</mat-icon>
+  </button>
+  </div>
+</div>

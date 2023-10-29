@@ -1,0 +1,44 @@
+.note-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+  }
+
+  p {
+      flex: 1;
+      margin-bottom: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+
+  .actions {
+      display: flex;
+      gap: 10px; // Gap between action buttons
+
+      button {
+          border: none;
+          background: none;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+
+          &:hover {
+              transform: scale(1.1);
+          }
+
+          &.complete {
+              opacity: 0.5;
+          }
+      }
+  }
+}
+
+.spacer {
+  flex: 1;
+}
